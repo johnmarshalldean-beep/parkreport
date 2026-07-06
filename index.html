@@ -3,74 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Warren County Park Report</title>
-<link rel="stylesheet" href="styles.css">
+<title>Warren County Parks Report</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#1f5f3b">
 </head>
-
 <body>
-
-<header>
-<img src="https://gis.vgsi.com/warrencountyva/Images/WARREN_LOGO.PNG" alt="Warren County Seal" class="seal">
-<h1>Warren County Park Report</h1>
-<p>Help keep our parks safe, clean, and beautiful.</p>
+<header class="app-header">
+  <div>
+    <h1>Warren County Parks Report</h1>
+    <p>Field Maintenance Reporting</p>
+  </div>
+  <button id="installBtn" class="ghost hidden">Install App</button>
 </header>
 
 <main class="container">
+<section class="card">
+  <h2>New Report</h2>
+  <form id="reportForm">
 
-<form id="reportForm">
+    <label for="employeeName">Employee Name</label>
+    <input type="text" id="employeeName" required placeholder="Your name">
 
-<label for="name">Resident Name</label>
-<input type="text" id="name" placeholder="Enter your name" required>
+    <label for="park">Park / Location</label>
+    <select id="park" required>
+      <option value="">Select a Park / Location</option>
+      <option>Fantasy Land</option>
+      <option>Rockland Park</option>
+      <option>LeHew Park</option>
+      <option>Chimney Field</option>
+      <option>Eastham Park</option>
+      <option>15th Street Soccer Plex</option>
+      <option>Tee Ball Complex</option>
+      <option>Warren County Skatepark</option>
+      <option>Warren County Dog Park</option>
+      <option>Gertrude E. Miller Community Park</option>
+      <option>Burrell Brooks, Jr. Community Park</option>
+      <option>Florence Smith Memorial Playground</option>
+      <option>Boat Ramp / River Access</option>
+      <option>Pool Facility</option>
+      <option>Other</option>
+    </select>
 
-<label for="email">Email Address</label>
-<input type="email" id="email" placeholder="Enter your email" required>
+    <label for="category">Category</label>
+    <select id="category" required>
+      <option value="">Select Category</option>
+      <option>Playground</option>
+      <option>Electrical</option>
+      <option>Plumbing</option>
+      <option>Building</option>
+      <option>Grounds</option>
+      <option>Athletic Field</option>
+      <option>Trash</option>
+      <option>Safety Hazard</option>
+      <option>Equipment</option>
+      <option>Other</option>
+    </select>
 
-<label for="park">Select Park</label>
-<select id="park" required>
-<option value="">Choose a Park</option>
-<option>Burrell Brooks, Jr. Community Park</option>
-<option>Chimney Field Park</option>
-<option>Dr. Seide Memorial Botanical Gardens</option>
-<option>Eastham Park</option>
-<option>Florence Smith Memorial Playground</option>
-<option>Gertrude E. Miller Community Park</option>
-<option>Lions Park</option>
-<option>Peter Lehew Park</option>
-<option>Rockland Park</option>
-<option>Warren County Dog Park</option>
-<option>Warren County Skatepark</option>
-</select>
+    <label for="priority">Priority</label>
+    <select id="priority" required>
+      <option>Low</option>
+      <option selected>Medium</option>
+      <option>High</option>
+      <option>Emergency</option>
+    </select>
 
-<label for="issue">Issue Type</label>
-<select id="issue" required>
-<option value="">Select Issue</option>
-<option>Playground Damage</option>
-<option>Graffiti</option>
-<option>Trash / Litter</option>
-<option>Broken Bench or Table</option>
-<option>Trail Issue</option>
-<option>Restroom Issue</option>
-<option>Fence / Gate Damage</option>
-<option>Lighting Problem</option>
-<option>Safety Concern</option>
-<option>Other</option>
-</select>
+    <label for="asset">Asset / Area</label>
+    <input type="text" id="asset" placeholder="Example: Pavilion A, restroom, swing set, field lights">
 
-<label for="description">Description</label>
-<textarea id="description" rows="6" placeholder="Describe the problem..." required></textarea>
+    <label for="description">Description</label>
+    <textarea id="description" rows="5" required placeholder="Describe the issue..."></textarea>
 
-<label for="photo">Upload Photo</label>
-<input type="file" id="photo" accept="image/*">
+    <label for="photo">Photo Required</label>
+    <input type="file" id="photo" accept="image/*" capture="environment" required>
 
-<button type="submit">Submit Report</button>
+    <div class="location-row">
+      <button type="button" id="locationBtn" class="secondary">Add GPS Location</button>
+      <span id="locationStatus">Not added</span>
+    </div>
 
-</form>
+    <button type="submit" id="submitBtn">Submit Report</button>
+    <p id="formMessage" class="message"></p>
+  </form>
+</section>
 
-<div id="message"></div>
-
+<nav class="bottom-nav">
+  <a href="history.html">History</a>
+  <a href="login.html">Admin Login</a>
+</nav>
 </main>
 
-<script src="script.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

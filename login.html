@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app-header">
+  <div>
+    <h1>Admin Login</h1>
+    <p>John, Reid, and Tiffany only</p>
+  </div>
+</header>
+<main class="container">
+<section class="card">
+  <h2>Enter Admin Name</h2>
+  <form id="loginForm">
+    <label for="adminName">Name</label>
+    <input id="adminName" required placeholder="John, Reid, or Tiffany">
+    <button type="submit">Login</button>
+    <p id="loginMessage" class="message"></p>
+  </form>
+</section>
+<nav class="bottom-nav">
+  <a href="index.html">New Report</a>
+  <a href="history.html">History</a>
+</nav>
+</main>
+<script src="supabase.js"></script>
+<script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report History</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#1f5132" />
+</head>
+<body>
+  <nav class="topbar">
+    <div>
+      <h1>History</h1>
+      <p>Open and completed reports</p>
+    </div>
+    <a href="index.html">New Report</a>
+  </nav>
+
+  <main class="container">
+    <section class="card controls">
+      <input id="searchInput" type="search" placeholder="Search by park, employee, or issue" />
+      <select id="statusFilter">
+        <option value="all">All</option>
+        <option value="Open">Open</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <button id="clearHistory" class="danger" type="button">Clear</button>
+    </section>
+
+    <section id="historyList"></section>
+  </main>
+
+  <script src="storage.js"></script>
+  <script src="history.js"></script>
+</body>
+</html>

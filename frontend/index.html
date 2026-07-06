@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Park Report</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#1f5132" />
+</head>
+<body>
+  <nav class="topbar">
+    <div>
+      <h1>Park Report</h1>
+      <p>Worker maintenance reports</p>
+    </div>
+    <a href="history.html">History</a>
+  </nav>
+
+  <main class="container">
+    <section class="card dashboard">
+      <div><span id="openCount">0</span><small>Open</small></div>
+      <div><span id="completeCount">0</span><small>Completed</small></div>
+      <div><span id="totalCount">0</span><small>Total</small></div>
+    </section>
+
+    <section class="card">
+      <h2>New Report</h2>
+      <form id="reportForm">
+        <label for="employeeName">Employee Name</label>
+        <input id="employeeName" type="text" placeholder="Example: John Dean" required />
+
+        <label for="parkName">Park</label>
+        <select id="parkName" required>
+          <option value="">Select park</option>
+          <option>Fantasy Land</option>
+          <option>Baseball Stadium</option>
+          <option>Dog Park</option>
+          <option>Soccer Complex</option>
+          <option>Skate Park</option>
+          <option>Pool Facility</option>
+          <option>Other</option>
+        </select>
+
+        <label for="priority">Priority</label>
+        <select id="priority" required>
+          <option>Low</option>
+          <option selected>Medium</option>
+          <option>High</option>
+          <option>Emergency</option>
+        </select>
+
+        <label for="description">Description</label>
+        <textarea id="description" placeholder="What needs fixed?" required></textarea>
+
+        <label for="photo">Photo Required</label>
+        <input id="photo" type="file" accept="image/*" capture="environment" required />
+
+        <button type="submit">Submit Report</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="storage.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
